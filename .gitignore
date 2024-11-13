@@ -1,0 +1,7 @@
+.venv
+.venv/*
+
+*.exe
+config.py
+
+linkedin_cookie.pkl
