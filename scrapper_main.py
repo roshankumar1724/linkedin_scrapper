@@ -61,7 +61,6 @@ def login_linkedIn():
             )
             
             with open("linkedin_cookie.pkl", "wb") as file:
-                print ("After login ==> \n" + str(driver.get_cookies()))
                 pickle.dump(driver.get_cookies(), file)
         except:
             print("Either increase timeout or Something went wrong !")
@@ -158,7 +157,7 @@ def verify_posts():
                             # Analyze the post for reporting
                             category, probability = analyze_post(post.text)
                             print(category, probability)
-                            if ((category != "NONE") and (probability > 0.95)):
+                            if ((category != "NONE") and (float(probability) > 0.95)):
                                 try:
                                     print("Potential violation found. Reporting post...")
                                     # Reporting the post
